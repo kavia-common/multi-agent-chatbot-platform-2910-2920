@@ -1,0 +1,4 @@
+{
+    "command": "npm install --legacy-peer-deps",
+    "working_directory": "/home/kavia/workspace/code-generation/multi-agent-chatbot-platform-2910-2920/multi_agent_chatbot_frontend"
+}
