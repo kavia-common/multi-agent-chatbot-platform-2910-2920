@@ -1,0 +1,22 @@
+<div class="docs-wrap">
+  <h2>Documents</h2>
+  <div class="controls">
+    <label class="upload-btn">
+      <input type="file" (change)="onFileChange($event)" />
+      <span>{{ uploading() ? 'Uploading...' : 'Upload Document' }}</span>
+    </label>
+    <button class="refresh" (click)="refresh()">Refresh</button>
+  </div>
+  <div class="error" *ngIf="error()">{{ error() }}</div>
+  <ul class="doc-list">
+    <li *ngFor="let d of docs()">
+      <div class="name">{{ d.filename || d.name || d.id }}</div>
+      <div class="meta">
+        <span>{{ (d.uploadedAt || d.createdAt) | date: 'short' }}</span>
+        <span class="muted">•</span>
+        <span>{{ d.size ? (d.size/1024 | number:'1.0-0') + ' KB' : '' }}</span>
+      </div>
+      <button class="danger" (click)="delete(d.id)">Delete</button>
+    </li>
+  </ul>
+</div>

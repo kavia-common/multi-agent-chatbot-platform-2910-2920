@@ -1,0 +1,14 @@
+<div class="history-wrap">
+  <h2>Chat History</h2>
+  <div *ngIf="loading()" class="muted">Loading...</div>
+  <ul class="history-list">
+    <li *ngFor="let s of sessions()" (click)="openSession(s.id)">
+      <div class="title">{{ s.title || ('Chat ' + (s.id | slice:0:6)) }}</div>
+      <div class="meta">
+        <span>{{ s.createdAt | date:'short' }}</span>
+        <span class="muted">•</span>
+        <span class="muted">{{ s.lastMessagePreview || '—' }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

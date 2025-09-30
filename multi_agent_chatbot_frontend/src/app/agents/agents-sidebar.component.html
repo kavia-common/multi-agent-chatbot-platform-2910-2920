@@ -1,0 +1,12 @@
+<div class="sidebar-wrap">
+  <div class="title">Agents</div>
+  <div class="hint">Select which agents should participate.</div>
+  <ul class="agent-list">
+    <li *ngFor="let a of agents()"
+        (click)="toggleAgent(a.id)"
+        [class.selected]="isSelected(a.id)">
+      <div class="name">{{ a.name }}</div>
+      <div class="desc">{{ a.description || a.role || '—' }}</div>
+    </li>
+  </ul>
+</div>

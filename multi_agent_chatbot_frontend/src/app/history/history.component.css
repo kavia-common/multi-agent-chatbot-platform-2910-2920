@@ -1,0 +1,14 @@
+.history-wrap { padding: 0.5rem; }
+h2 { margin-bottom: 0.75rem; }
+.muted { color: var(--muted); }
+.history-list { list-style: none; display: grid; gap: 0.5rem; }
+.history-list li {
+  padding: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--surface);
+}
+.history-list li:hover { border-color: var(--primary); }
+.title { font-weight: 600; }
+.meta { color: var(--muted); font-size: 0.9rem; }

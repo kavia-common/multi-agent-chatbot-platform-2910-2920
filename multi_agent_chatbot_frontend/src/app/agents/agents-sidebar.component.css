@@ -1,0 +1,40 @@
+.sidebar-wrap {
+  padding: 1rem;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.agent-list {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.agent-list li {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  cursor: pointer;
+  background: var(--surface);
+}
+
+.agent-list li:hover {
+  border-color: var(--primary);
+}
+
+.agent-list li.selected {
+  outline: 2px solid var(--secondary);
+  background: linear-gradient(180deg, rgba(245,158,11,0.08), transparent);
+}
+
+.name { font-weight: 600; }
+.desc { color: var(--muted); font-size: 0.85rem; }

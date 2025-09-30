@@ -1,0 +1,100 @@
+.chat-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: calc(100dvh - 180px);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.messages {
+  padding: 1rem;
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(249,250,251,0.6));
+}
+
+.message {
+  display: flex;
+  margin-bottom: 0.6rem;
+}
+
+.message.user { justify-content: flex-end; }
+.message.assistant { justify-content: flex-start; }
+.message.system { justify-content: center; }
+
+.bubble {
+  max-width: 70%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.message.user .bubble {
+  background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(255,255,255,0.9));
+  border-color: #c7d2fe;
+}
+
+.message.assistant .bubble {
+  background: #ffffff;
+}
+
+.message.system .bubble {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.sender {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.composer textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.composer button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.typing .dot {
+  display: inline-block; width: 6px; height: 6px;
+  background: var(--primary);
+  border-radius: 50%; margin: 0 2px;
+  animation: blink 1.4s infinite both;
+}
+.typing .dot:nth-child(2) { animation-delay: 0.2s; }
+.typing .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0% { opacity: .2; }
+  20% { opacity: 1; }
+  100% { opacity: .2; }
+}

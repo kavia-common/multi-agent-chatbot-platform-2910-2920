@@ -1,0 +1,35 @@
+<div class="auth-wrap">
+  <div class="card">
+    <div class="head">
+      <div class="logo">🤖</div>
+      <div class="title">{{ mode() === 'login' ? 'Welcome back' : 'Create your account' }}</div>
+      <div class="subtitle">Multi-Agent Chatbot</div>
+    </div>
+
+    <div class="form">
+      <label>
+        <span>Email</span>
+        <input type="email" [ngModel]="email()" (ngModelChange)="setEmail($event)" placeholder="you@example.com" />
+      </label>
+      <label *ngIf="mode()==='signup'">
+        <span>Name</span>
+        <input type="text" [ngModel]="name()" (ngModelChange)="setName($event)" placeholder="Your Name" />
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" [ngModel]="password()" (ngModelChange)="setPassword($event)" placeholder="••••••••" />
+      </label>
+
+      <div class="error" *ngIf="error()">{{ error() }}</div>
+
+      <button (click)="submit()" [disabled]="loading()">
+        {{ loading() ? 'Please wait...' : (mode() === 'login' ? 'Login' : 'Sign up') }}
+      </button>
+      <div class="alt">
+        <a (click)="switchMode()">
+          {{ mode()==='login' ? 'Need an account? Sign up' : 'Already have an account? Login' }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

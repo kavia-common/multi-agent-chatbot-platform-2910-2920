@@ -1,0 +1,20 @@
+<div class="chat-wrap">
+  <div class="messages">
+    <div *ngFor="let m of messages()" class="message" [class.user]="m.sender==='user'" [class.assistant]="m.sender==='assistant'" [class.system]="m.sender==='system'">
+      <div class="bubble">
+        <div class="sender" *ngIf="m.sender!=='user'">{{ m.sender | titlecase }}</div>
+        <div class="content">{{ m.content }}</div>
+      </div>
+    </div>
+    <div *ngIf="loading()" class="message assistant">
+      <div class="bubble typing">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="composer">
+    <textarea [ngModel]="composer()" (ngModelChange)="setComposer($event)" placeholder="Ask anything... Use @agent to direct a question." rows="2"></textarea>
+    <button (click)="send()" [disabled]="loading() || !composer().trim()">Send</button>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.prefs-wrap { padding: 0.5rem; }
+.hint { color: var(--muted); margin-bottom: 0.75rem; }
+.grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.key { font-weight: 600; }
+.desc { color: var(--muted); margin-bottom: 0.5rem; }
+.toggle { display: flex; gap: 0.5rem; align-items: center; }
+input[type="text"], input[type="number"] {
+  border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.6rem; width: 100%;
+}

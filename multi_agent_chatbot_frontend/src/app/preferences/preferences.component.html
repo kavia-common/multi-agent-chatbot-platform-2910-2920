@@ -1,0 +1,19 @@
+<div class="prefs-wrap">
+  <h2>Preferences</h2>
+  <div class="hint">Configure default behaviors for the multi-agent system.</div>
+  <div class="grid">
+    <div class="card" *ngFor="let p of prefs()">
+      <div class="key">{{ p.label || p.key }}</div>
+      <div class="desc">{{ p.description || '' }}</div>
+
+      <ng-container [ngSwitch]="typeof p.value">
+        <input *ngSwitchCase="'string'" [(ngModel)]="p.value" (blur)="save(p)" />
+        <input *ngSwitchCase="'number'" type="number" [(ngModel)]="p.value" (blur)="save(p)" />
+        <label class="toggle" *ngSwitchCase="'boolean'">
+          <input type="checkbox" [(ngModel)]="p.value" (change)="save(p)" />
+          <span>Enabled</span>
+        </label>
+      </ng-container>
+    </div>
+  </div>
+</div>

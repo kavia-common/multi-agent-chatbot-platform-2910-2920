@@ -1,0 +1,35 @@
+<div class="app-shell">
+  <header class="app-header">
+    <div class="left">
+      <button class="icon-btn" (click)="toggleSidebar()" aria-label="Toggle sidebar">
+        ☰
+      </button>
+      <a class="brand" routerLink="/chat">
+        <span class="brand-accent">Multi-Agent</span> Chatbot
+      </a>
+    </div>
+    <nav class="nav">
+      <a routerLink="/chat" routerLinkActive="active">Chat</a>
+      <a routerLink="/history" routerLinkActive="active">History</a>
+      <a routerLink="/preferences" routerLinkActive="active">Preferences</a>
+      <a routerLink="/documents" routerLinkActive="active">Documents</a>
+    </nav>
+  </header>
+
+  <div class="app-body">
+    <aside class="sidebar" [class.closed]="!sidebarOpen()">
+      <router-outlet name="sidebar"></router-outlet>
+    </aside>
+
+    <main class="main">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <span>Powered by Multi-Agent Orchestration & RAG</span>
+      <span class="muted">Ocean Professional • v0.1</span>
+    </div>
+  </footer>
+</div>
